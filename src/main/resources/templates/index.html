@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>String Utility API Documentation</title>
+</head>
+<body>
+<div class="sidebar">
+    <h2>API Methods</h2>
+    <ul>
+        <li><a href="#reverse">Reverse</a></li>
+        <li><a href="#isPalindrome">Is Palindrome</a></li>
+        <li><a href="#duplicateCharacters">Duplicate Characters</a></li>
+        <li><a href="#checkRotation">Check Rotation</a></li>
+        <li><a href="#toUpperCase">To Upper Case</a></li>
+        <li><a href="#toLowerCase">To Lower Case</a></li>
+        <li><a href="#randomString">Random String</a></li>
+        <li><a href="#isAnagram">Is Anagram</a></li>
+        <li><a href="#toAlphaNumeric">To Alpha Numeric</a></li>
+        <li><a href="#substringOccurrences">Substring Occurrences</a></li>
+        <li><a href="#capitalizeFirst">Capitalize First</a></li>
+        <li><a href="#stringLength">String Length</a></li>
+        <li><a href="#camelToSnake">Camel To Snake</a></li>
+        <li><a href="#snakeToCamel">Snake To Camel</a></li>
+        <li><a href="#slugGenerator">Slug Generator</a></li>
+        <li><a href="#isValidEmail">Is Valid Email</a></li>
+        <li><a href="#isValidURL">Is Valid URL</a></li>
+        <li><a href="#isStrongPassword">Is Strong Password</a></li>
+        <li><a href="#emojiRemoval">Emoji Removal</a></li>
+        <li><a href="#hammingDistance">Hamming Distance</a></li>
+        <li><a href="#base64Decode">Base64 Decode</a></li>
+        <li><a href="#base64Encode">Base64 Encode</a></li>
+        <li><a href="#sentenceTokenizer">Sentence Tokenizer</a></li>
+        <li><a href="#wordTokenizer">Word Tokenizer</a></li>
+    </ul>
+</div>
+<div class="content">
+    <h1>String Utility API Documentation</h1>
+    <p>This documentation provides an overview of the available API endpoints for the String Utility service.</p>
+
+    <h2>Available Endpoints</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Endpoint</th>
+            <th>Method</th>
+            <th>Parameters</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr id="reverse">
+            <td><code>/api/v1/<strong>reverse</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to be reversed.
+            </td>
+            <td>Returns the reversed version of the input string.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/reverse?text=hello</pre>
+                <h4>Response:</h4>
+                <pre>"olleh"</pre>
+            </td>
+        </tr>
+        <tr id="isPalindrome">
+            <td><code>/api/v1/<strong>isPalindrome</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to be checked.
+            </td>
+            <td>Returns <code>true</code> if the input string is a palindrome, otherwise <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/isPalindrome?text=radar</pre>
+                <h4>Response:</h4>
+                <pre>true</pre>
+            </td>
+        </tr>
+        <tr id="duplicateCharacters">
+            <td><code>/api/v1/<strong>duplicateCharacters</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string in which duplicate characters are to be found.
+            </td>
+            <td>Returns a map of duplicate characters and their counts.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/duplicateCharacters?text=hello</pre>
+                <h4>Response:</h4>
+                <pre>{"l": 2}</pre>
+            </td>
+        </tr>
+        <tr id="checkRotation">
+            <td><code>/api/v1/<strong>checkRotation</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text1</strong>: string<br>
+                <strong>text2</strong>: string<br>
+                (Both required) Two strings to check if they are rotations of each other.
+            </td>
+            <td>Returns <code>true</code> if one string is a rotation of the other, otherwise <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/checkRotation?text1=waterbottle&text2=bottlewater</pre>
+                <h4>Response:</h4>
+                <pre>true</pre>
+            </td>
+        </tr>
+        <tr id="toUpperCase">
+            <td><code>/api/v1/<strong>toUpperCase</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to convert to uppercase.
+            </td>
+            <td>Returns the input string converted to uppercase.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/toUpperCase?text=hello</pre>
+                <h4>Response:</h4>
+                <pre>"HELLO"</pre>
+            </td>
+        </tr>
+        <tr id="toLowerCase">
+            <td><code>/api/v1/<strong>toLowerCase</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to convert to lowercase.
+            </td>
+            <td>Returns the input string converted to lowercase.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/toLowerCase?text=HELLO</pre>
+                <h4>Response:</h4>
+                <pre>"hello"</pre>
+            </td>
+        </tr>
+        <tr id="randomString">
+            <td><code>/api/v1/<strong>randomString</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>length</strong>: int<br>
+                (Required) The length of the random string to generate.
+            </td>
+            <td>Generates a random alphanumeric string of the specified length.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/randomString?length=10</pre>
+                <h4>Response:</h4>
+                <pre>"Ab12cD3EfG"</pre>
+            </td>
+        </tr>
+        <tr id="isAnagram">
+            <td><code>/api/v1/<strong>isAnagram</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text1</strong>: string<br>
+                <strong>text2</strong>: string<br>
+                (Both required) Two strings to check if they are anagrams of each other.
+            </td>
+            <td>Returns <code>true</code> if the two strings are anagrams, otherwise <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/isAnagram?text1=listen&text2=silent</pre>
+                <h4>Response:</h4>
+                <pre>true</pre>
+            </td>
+        </tr>
+        <tr id="toAlphaNumeric">
+            <td><code>/api/v1/<strong>toAlphaNumeric</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to convert to alphanumeric format.
+            </td>
+            <td>Returns a string containing only alphanumeric characters.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/toAlphaNumeric?text=Hello!@#$%^&*()_+123</pre>
+                <h4>Response:</h4>
+                <pre>"Hello123"</pre>
+            </td>
+        </tr>
+        <tr id="substringOccurrences">
+            <td><code>/api/v1/<strong>substringOccurrences</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                <strong>substring</strong>: string<br>
+                (Both required) The string to search in and the substring to search for.
+            </td>
+            <td>Returns the number of occurrences of the substring in the input string.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/substringOccurrences?text=hellohello&substring=lo</pre>
+                <h4>Response:</h4>
+                <pre>1</pre>
+            </td>
+        </tr>
+        <tr id="capitalizeFirst">
+            <td><code>/api/v1/<strong>capitalizeFirst</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to capitalize the first letter of.
+            </td>
+            <td>Returns the input string with the first letter capitalized.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/capitalizeFirst?text=hello</pre>
+                <h4>Response:</h4>
+                <pre>"Hello"</pre>
+            </td>
+        </tr>
+        <tr id="stringLength">
+            <td><code>/api/v1/<strong>stringLength</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to get the length of.
+            </td>
+            <td>Returns the length of the input string.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/stringLength?text=hello</pre>
+                <h4>Response:</h4>
+                <pre>5</pre>
+            </td>
+        </tr>
+        <tr id="camelToSnake">
+            <td><code>/api/v1/<strong>camelToSnake</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The camelCase string to convert.
+            </td>
+            <td>Returns the input string converted to snake_case.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/camelToSnake?text=camelCaseString</pre>
+                <h4>Response:</h4>
+                <pre>"camel_case_string"</pre>
+            </td>
+        </tr>
+        <tr id="snakeToCamel">
+            <td><code>/api/v1/<strong>snakeToCamel</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The snake_case string to convert.
+            </td>
+            <td>Returns the input string converted to camelCase.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/snakeToCamel?text=snake_case_string</pre>
+                <h4>Response:</h4>
+                <pre>"snakeCaseString"</pre>
+            </td>
+        </tr>
+        <tr id="slugGenerator">
+            <td><code>/api/v1/<strong>slugGenerator</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to generate a slug from.
+            </td>
+            <td>Returns a URL-friendly slug from the input string.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/slugGenerator?text=Hello World!</pre>
+                <h4>Response:</h4>
+                <pre>"hello-world"</pre>
+            </td>
+        </tr>
+        <tr id="isValidEmail">
+            <td><code>/api/v1/<strong>isValidEmail</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>email</strong>: string<br>
+                (Required) The email to validate.
+            </td>
+            <td>Returns <code>true</code> if the input is a valid email format, otherwise <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/isValidEmail?email=test@example.com</pre>
+                <h4>Response:</h4>
+                <pre>true</pre>
+            </td>
+        </tr>
+        <tr id="isValidURL">
+            <td><code>/api/v1/<strong>isValidURL</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>url</strong>: string<br>
+                (Required) The URL to validate.
+            </td>
+            <td>Returns <code>true</code> if the input is a valid URL format, otherwise <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/isValidURL?url=https://example.com</pre>
+                <h4>Response:</h4>
+                <pre>true</pre>
+            </td>
+        </tr>
+        <tr id="isStrongPassword">
+            <td><code>/api/v1/<strong>isStrongPassword</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>password</strong>: string<br>
+                (Required) The password to validate.
+            </td>
+            <td>Returns <code>true</code> if the password is strong, otherwise <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/isStrongPassword?password=StrongP@ssw0rd</pre>
+                <h4>Response:</h4>
+                <pre>true</pre>
+            </td>
+        </tr>
+        <tr id="emojiRemoval">
+            <td><code>/api/v1/<strong>emojiRemoval</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string from which to remove emojis.
+            </td>
+            <td>Returns the input string with emojis removed.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/emojiRemoval?text=Hello👋😊</pre>
+                <h4>Response:</h4>
+                <pre>"Hello"</pre>
+            </td>
+        </tr>
+        <tr id="hammingDistance">
+            <td><code>/api/v1/<strong>hammingDistance</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>str1</strong>: string<br>
+                <strong>str2</strong>: string<br>
+                (Both required) Two strings to compare.
+            </td>
+            <td>Returns the Hamming distance between the two strings.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/hammingDistance?str1=karolin&str2=100101</pre>
+                <h4>Response:</h4>
+                <pre>3</pre>
+            </td>
+        </tr>
+        <tr id="base64Decode">
+            <td><code>/api/v1/<strong>base64Decode</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>encoded</strong>: string<br>
+                (Required) The Base64-encoded string to decode.
+            </td>
+            <td>Returns the decoded string from the input Base64-encoded string.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/base64Decode?encoded=SGVsbG8gd29ybGQ=</pre>
+                <h4>Response:</h4>
+                <pre>"Hello world"</pre>
+            </td>
+        </tr>
+        <tr id="base64Encode">
+            <td><code>/api/v1/<strong>base64Encode</strong></code></td>
+            <td>GET</td>
+            <td>
+                <strong>text</strong>: string<br>
+                (Required) The string to Base64-encode.
+            </td>
+            <td>Returns the Base64-encoded string from the input string.</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h3>Example Request</h3>
+                <pre>GET /api/v1/base64Encode?text=Hello world</pre>
+                <h4>Response:</h4>
+                <pre>"SGVsbG8gd29ybGQ="</pre>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
